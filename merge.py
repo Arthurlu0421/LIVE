@@ -4,6 +4,9 @@ import requests
 urls = [
     "https://raw.githubusercontent.com/mursor1985/LIVE/refs/heads/main/iptv.m3u",
     "https://raw.githubusercontent.com/mursor1985/LIVE/refs/heads/main/bililive.m3u",
+    “https://raw.githubusercontent.com/mursor1985/LIVE/refs/heads/main/douyuyqk.m3u”,
+    “https://raw.githubusercontent.com/mursor1985/LIVE/refs/heads/main/huyayqk.m3u”,
+    “https://raw.githubusercontent.com/mursor1985/LIVE/refs/heads/main/yylunbo.m3u”,
 ]
 
 merged = ["#EXTM3U"]
