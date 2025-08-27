@@ -1,4 +1,4 @@
-name: Sync and Merge M3U
+name: Sync and Merge M3U8
 
 on:
   schedule:
@@ -30,7 +30,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
-          
+
       - name: Install dependencies
         run: |
           python3 -m pip install --upgrade pip
@@ -40,12 +40,8 @@ jobs:
         run: |
           python3 merge.py
 
-      - name: Commit merged all.m3u (only if changed)
+      - name: Commit merged all.m3u8 (always)
         run: |
-          if ! git diff --quiet all.m3u; then
-            git add all.m3u
-            git commit -m "Update merged all.m3u"
-            git push origin main
-          else
-            echo "✅ No changes in all.m3u, skip commit."
-          fi
+          git add all.m3u8
+          git commit -m "Update merged all.m3u8" || echo "No changes to commit"
+          git push origin main
