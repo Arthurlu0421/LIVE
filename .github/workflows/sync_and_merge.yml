@@ -35,8 +35,12 @@ jobs:
         run: |
           python3 merge.py
 
-      - name: Commit merged all.m3u
+      - name: Commit merged all.m3u (only if changed)
         run: |
-          git add all.m3u
-          git commit -m "Update merged all.m3u" || echo "No changes to commit"
-          git push origin main
+          if ! git diff --quiet all.m3u; then
+            git add all.m3u
+            git commit -m "Update merged all.m3u"
+            git push origin main
+          else
+            echo "✅ No changes in all.m3u, skip commit."
+          fi
